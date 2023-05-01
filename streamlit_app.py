@@ -1,5 +1,5 @@
 #First Streamlit Python App
-import streamlit, pandas, requests
+import streamlit, pandas, requests, snowflake.connector
 
 streamlit.title("My New Python & Streamlit App");
 
