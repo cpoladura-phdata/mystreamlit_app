@@ -1,5 +1,6 @@
 #First Streamlit Python App
 import streamlit, pandas, requests, snowflake.connector
+from urllib.error import URLError
 
 streamlit.title("My New Python & Streamlit App");
 
@@ -34,6 +35,8 @@ fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_c
 fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 # writes the JSON into a table
 streamlit.dataframe(fruityvice_normalized)
+
+streamlit.stop() # pausing here while troubleshooting
 
 # Using Snowflake Connection Items
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
